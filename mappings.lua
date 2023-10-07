@@ -7,16 +7,21 @@ return {
   -- first key is the mode
   n = {
     -- second key is the lefthand side of the map
+    -- vim.api.nvim_set_keymap('n', '<leader>oo', ':ClangdSwitchSourceHeader<cr>', { silent = true })
+    ["<leader>oo"] = { ":ClangdSwitchSourceHeader<cr>", desc = "Switch to header/source" },
+
+    -- vim.keymap.set('n', '<leader>ob', "<cmd>e #<cr>", { noremap = true, silent = true }) -- go back to last buffer
+    ["<leader>ob"] = { "<cmd>e #<cr>", desc = "Go back to previous buffer" },
 
     -- navigate buffer tabs with `H` and `L`
-    -- L = {
-    --   function() require("astronvim.utils.buffer").nav(vim.v.count > 0 and vim.v.count or 1) end,
-    --   desc = "Next buffer",
-    -- },
-    -- H = {
-    --   function() require("astronvim.utils.buffer").nav(-(vim.v.count > 0 and vim.v.count or 1)) end,
-    --   desc = "Previous buffer",
-    -- },
+    L = {
+      function() require("astronvim.utils.buffer").nav(vim.v.count > 0 and vim.v.count or 1) end,
+      desc = "Next buffer",
+    },
+    H = {
+      function() require("astronvim.utils.buffer").nav(-(vim.v.count > 0 and vim.v.count or 1)) end,
+      desc = "Previous buffer",
+    },
 
     -- mappings seen under group name "Buffer"
     ["<leader>bD"] = {
@@ -31,7 +36,7 @@ return {
     -- this is useful for naming menus
     ["<leader>b"] = { name = "Buffers" },
     -- quick save
-    -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
+    ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
   },
   t = {
     -- setting a mapping to false will disable it
