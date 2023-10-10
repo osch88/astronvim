@@ -8,10 +8,10 @@ return {
   n = {
     -- second key is the lefthand side of the map
     -- vim.api.nvim_set_keymap('n', '<leader>oo', ':ClangdSwitchSourceHeader<cr>', { silent = true })
-    ["<leader>oo"] = { ":ClangdSwitchSourceHeader<cr>", desc = "Switch to header/source" },
+    ["<leader>Oo"] = { ":ClangdSwitchSourceHeader<cr>", desc = "Switch to header/source" },
 
     -- vim.keymap.set('n', '<leader>ob', "<cmd>e #<cr>", { noremap = true, silent = true }) -- go back to last buffer
-    ["<leader>ob"] = { "<cmd>e #<cr>", desc = "Go back to previous buffer" },
+    ["<leader>Ob"] = { "<cmd>e #<cr>", desc = "Go back to previous buffer" },
 
     -- navigate buffer tabs with `H` and `L`
     L = {
