@@ -1,5 +1,3 @@
--- TODO Test
-
 return {
   -- You can also add new plugins here as well:
   -- Add plugins, the lazy syntax
@@ -29,46 +27,6 @@ return {
     priority = 1000,
     config = function()
       vim.cmd.colorscheme 'onedark'
-    end,
-  },
-  {
-    "nvim-neorg/neorg",
-    ft = "norg",
-    build = ":Neorg sync-parsers",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-treesitter/nvim-treesitter-textobjects",
-      "nvim-cmp",
-    },
-    -- event = "User AstroFile",
-    cmd = "Neorg",
-    keys = {
-      { "<leader>Ni", "<cmd>Neorg index<cr>", desc = "Open Neorg index"},
-      { "<leader>Nt", "<cmd>Neorg toc<cr>", desc = "Open Neorg toc"},
-    },
-    config = function()
-      require("neorg").setup {
-        load = {
-          ["core.defaults"] = {}, -- Loads default behaviour
-          ["core.concealer"] = {
-            config = { icon_present = "diamond" }
-          }, -- Adds pretty icons to your documents
-          ["core.export"] = {},
-          ["core.dirman"] = { -- Manages Neorg workspaces
-            config = {
-              workspaces = {
-                notes = "~/notes",
-              },
-              default_workspace = "notes",
-            },
-          },
-          ["core.esupports.metagen"] = { config = { type = "auto", update_date = true } },
-          ["core.qol.toc"] = {},
-          ["core.qol.todo_items"] = {},
-          ["core.looking-glass"] = {},
-          ["core.presenter"] = { config = { zen_mode = "zen-mode" } },
-        },
-      }
     end,
   },
   {

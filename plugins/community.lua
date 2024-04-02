@@ -5,16 +5,53 @@ return {
   -- available plugins can be found at https://github.com/AstroNvim/astrocommunity
 
   { import = "astrocommunity.colorscheme.catppuccin" },
-  -- { import = "astrocommunity.colorscheme.nord-nvim" },
   { import = "astrocommunity.colorscheme.onedarkpro-nvim" },
   { import = "astrocommunity.colorscheme.dracula-nvim" },
+  { import = "astrocommunity.completion.copilot-lua-cmp" },
+  { import = "astrocommunity.motion.marks-nvim" },
+  { import = "astrocommunity.pack.markdown" },
+  { import = "astrocommunity.note-taking.neorg" },
+  {
+    "nvim-neorg/neorg",
+    ft = "norg",
+    build = ":Neorg sync-parsers",
+    lazy = false,
+    event = "User AstroFile",
+    cmd = "Neorg",
+    keys = {
+      { "<leader>Ni", "<cmd>Neorg index<cr>", desc = "Open Neorg index"},
+      { "<leader>Nt", "<cmd>Neorg toc<cr>", desc = "Open Neorg toc"},
+    },
+    config = function()
+      require("neorg").setup {
+        load = {
+          ["core.defaults"] = {}, -- Loads default behaviour
+          ["core.concealer"] = {
+            config = { icon_present = "diamond" }
+          }, -- Adds pretty icons to your documents
+          ["core.export"] = {},
+          ["core.dirman"] = { -- Manages Neorg workspaces
+            config = {
+              workspaces = {
+                notes = "~/notes",
+              },
+              default_workspace = "notes",
+            },
+          },
+          ["core.esupports.metagen"] = { config = { type = "auto", update_date = true } },
+          ["core.qol.toc"] = {},
+          ["core.qol.todo_items"] = {},
+          ["core.looking-glass"] = {},
+          ["core.presenter"] = { config = { zen_mode = "zen-mode" } },
+        },
+      }
+    end,
+  },
+  -- { import = "astrocommunity.colorscheme.nord-nvim" },
   -- { import = "astrocommunity.pack.cpp" },
-  -- { import = "astrocommunity.pack.markdown" },
-  -- { import = "astrocommunity.pack.bash" },
   -- { import = "astrocommunity.pack.bash" },
   -- { import = "astrocommunity.pack.html-css" },
   -- { import = "astrocommunity.pack.java" },
   -- { import = "astrocommunity.pack.yaml" },
   -- { import = "astrocommunity.pack.python" },
-  -- { import = "astrocommunity.completion.copilot-lua-cmp" },
 }
