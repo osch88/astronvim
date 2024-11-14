@@ -27,7 +27,7 @@ return {
     -- vim options can be configured here
     options = {
       opt = { -- vim.opt.<key>
-        relativenumber = true, -- sets vim.opt.relativenumber
+        relativenumber = false, -- sets vim.opt.relativenumber
         number = true, -- sets vim.opt.number
         spell = false, -- sets vim.opt.spell
         signcolumn = "auto", -- sets vim.opt.signcolumn to auto
@@ -46,8 +46,8 @@ return {
       n = {
         -- second key is the lefthand side of the map
 
-        ["<leader>äo"] = { ":ClangdSwitchSourceHeader<cr>", desc = "Switch to header/source" },
-        ["<leader>äb"] = { "<cmd>e #<cr>", desc = "Go back to previous buffer" },
+        ["<localleader>o"] = { ":ClangdSwitchSourceHeader<cr>", desc = "Switch to header/source" },
+        ["<localleader>b"] = { "<cmd>e #<cr>", desc = "Go back to previous buffer" },
 
         -- navigate buffer tabs with `H` and `L`
         L = { function() require("astrocore.buffer").nav(vim.v.count1) end, desc = "Next buffer" },
