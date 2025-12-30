@@ -6,7 +6,8 @@ return {
 
   -- { import = "astrocommunity.colorscheme.catppuccin" },
   { import = "astrocommunity.colorscheme.onedarkpro-nvim" },
-  -- { import = "astrocommunity.completion.copilot-lua-cmp" },
+  { import = "astrocommunity.completion.copilot-lua-cmp" },
+  { import = "astrocommunity.editing-support.copilotchat-nvim" },
   { import = "astrocommunity.motion.marks-nvim" },
   -- { import = "astrocommunity.note-taking.neorg" },
   { import = "astrocommunity.pack.bash" },

@@ -1,4 +1,3 @@
--- if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
 return  {
   "nvim-neorg/neorg",
   ft = "norg",
@@ -13,7 +12,6 @@ return  {
     -- { "<leader>Nt", "<cmd>Neorg toc<cr>", desc = "Open Neorg toc" },
     { "<leader>N", "<cmd>Neorg<cr>", desc = "Open Neorg toc" },
   },
-  -- config = true,
   config = function()
     require("neorg").setup {
       load = {
@@ -37,5 +35,7 @@ return  {
         ["core.presenter"] = { config = { zen_mode = "zen-mode" } },
       },
     }
+    vim.wo.foldlevel = 99
+    vim.wo.conceallevel = 2
   end,
 }
